@@ -1,8 +1,8 @@
-fs = 44100; %% Frequência de Amostragem
+fs = 44100; %% Frequencia de Amostragem
 winsize = 4000; %% Tamanho da janela
-NFFT = 4096; %% Número de amostras da stft
-noverlap = 2000; %Número de amostras que não sofrerão overlap
-audio_duration = 3; %Duração do áudio
+NFFT = 4096; %% Numero de amostras da stft
+noverlap = 2000; %Numero de amostras que nao sofrerao overlap
+audio_duration = 3; %Duracao do audio
 window = hanning(winsize); %Janela a ser utilizada na stft
 signal = gravaAudio(fs,audio_duration);  
 

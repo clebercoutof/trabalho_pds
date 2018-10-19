@@ -6,34 +6,26 @@
 \chapter*[Introdução]{Introdução}
 \addcontentsline{toc}{chapter}{Introdução}
 
-Este relatório descreve o método utilizado para o projeto de um sistema de rádio enlace ponto a ponto, com base nos dois pontos fornecidos.
+Este relatório descreve os procedimentos e códigos utilizados para a criação de um sistema de processamento de áudio para correção de tons musicais.
 
-Segundo TUDE, o enlace de rádio pode ser definido como : "
-Uma aplicação da transmissão de informação por meio de ondas eletromagnéticas, se caracterizando como uma das aplicação que faz parte das Segundo Tude , “Um enlace rádio digital ponto a ponto é utilizado para o transporte de informação entre dois pontos fixos,tendo o espaço livre como meio de transmissão (wireless)”.[1]
+\section*{Teoria Musical}
+Na música a notação utilizada, chamada diastemática, os sons são representados graficamente, de maneira que seja possível mensurar os intervalos de frequências, o que indica diferentes notas musicais. 
+
+Para representação de sons mais longos ou curtos surge então a notação da grandeza tempo, que diferentemente da convenção comum, não possui um valor fixo, portanto, cria-se uma referência com relação à duração da notas semibreve, sendo elas a mínima, semínima, colcheia, semicolcheia, fusa, semifusa.
+
+Outro aspecto extremamente importante da teoria musical é a frequência, grandeza qual classifica o quão graves ou agudos são os sons. Sons que apresentam maiores frequências são mais agudos que os de frequências mais baixas 
+
+Diferentes instrumentos são capazes de gerar sons diferentes mesmo que as frequências fundamentais sejam idênticas, o que em outras palavras significa dizer que um Ré gerado por um instrumento de corda não tem o mesmo som de um Ré gerado por um instrumento de sopro ou da voz humana, Este fenômeno, que é chamado de timbre, se dá principalmente pela geometria do instrumento, que define quais serão as outras componentes senoidais adicionadas à fundamental.
+
 
 
 \section*{Proposta}\label{sec:motivacao}
 
-Projetar um sistema de rádio enlace ponto a ponto, entre os pontos mostrados nos mapas anexados.
-\begin{figure}[!htb]
-	\begin{minipage}{0.48\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{ponto_a.png}
-		\caption{Ponto A}\label{Fig:ponto_a_intro}
-	\end{minipage}\hfill
-	\begin{minipage}{0.48\textwidth}
-		\centering
-		\includegraphics[width=1\linewidth]{ponto_b.png}
-		\caption{Ponto B}\label{Fig:ponto_b_intro}
-	\end{minipage}
-\end{figure}
-
-Foi solicitado que sejam tomadas as seguintes decisões:
+Projetar um algoritmo capaz de realizar a afinação de um som emitido pela voz humana para uma frequência selecionada através das técnicas de processamento como transformadas e mudanças de tom. Para a realização dos algoritmos foram tomadas as seguintes decisões:
 
 \begin{itemize}
-\item Definir a frequência de operação;
-\item Calcular a Potência do Rádio Transmissor, Sensibilidade do Receptor e ganhos das Antenas, para o enlace fornecido;
-\item Definir solução a ser adotada com base em fornecedores comerciais reais (Ex:
-Intelbras, Ubiquiti, Tp Link, MikroTik, entre outros)
+\item Aplicação dos conceitos de Processamento digital de Sinais;
+\item Identificação das componentes de frequência da voz;
+\item Realizar a troca de tom através das técnicas de Pitch Shfit
 \end{itemize}
 

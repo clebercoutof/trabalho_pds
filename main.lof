@@ -1,8 +1,9 @@
 \select@language {brazil}
-\contentsline {figure}{\numberline {1}{\ignorespaces Ponto A\relax }}{3}{figure.caption.5}
-\contentsline {figure}{\numberline {2}{\ignorespaces Ponto B\relax }}{3}{figure.caption.5}
-\contentsline {figure}{\numberline {3}{\ignorespaces Gr\IeC {\'a}fico de obst\IeC {\'a}culo\relax }}{5}{figure.caption.6}
-\contentsline {figure}{\numberline {4}{\ignorespaces Curvatura parab\IeC {\'o}lica utilizada para aproxima\IeC {\c c}\IeC {\~a}o\relax }}{5}{figure.caption.7}
-\contentsline {figure}{\numberline {5}{\ignorespaces Modelo da zona de \textit {Fresnel}\relax }}{6}{figure.caption.8}
-\contentsline {figure}{\numberline {6}{\ignorespaces Gr\IeC {\'a}fico de atenua\IeC {\c c}\IeC {\~a}o\relax }}{7}{figure.caption.9}
-\contentsline {figure}{\numberline {7}{\ignorespaces Vari\IeC {\'a}veis do projeto\relax }}{12}{figure.caption.14}
+\contentsline {figure}{\numberline {1}{\ignorespaces Transformada de Fourier para sinais cont\IeC {\'\i }nuos\relax }}{6}{figure.caption.8}
+\contentsline {figure}{\numberline {2}{\ignorespaces Transformada Discreta de Fourier\relax }}{6}{figure.caption.9}
+\contentsline {figure}{\numberline {3}{\ignorespaces Transformada de Fourier de Tempo Curto\relax }}{6}{figure.caption.10}
+\contentsline {figure}{\numberline {4}{\ignorespaces Transformada de Fourier de Tempo Curto sendo aplicada em diversas frequ\IeC {\^e}ncias de um mesmo sinal\relax }}{7}{figure.caption.11}
+\contentsline {figure}{\numberline {5}{\ignorespaces Efeitos da fun\IeC {\c c}\IeC {\~a}o de janelamento em um sinal no espectro de frequ\IeC {\^e}ncia\relax }}{8}{figure.caption.13}
+\contentsline {figure}{\numberline {6}{\ignorespaces Fun\IeC {\c c}\IeC {\~a}o da janela Hanning\relax }}{9}{figure.caption.15}
+\contentsline {figure}{\numberline {7}{\ignorespaces Fun\IeC {\c c}\IeC {\~a}o da janela Hanning\relax }}{9}{figure.caption.16}
+\contentsline {figure}{\numberline {8}{\ignorespaces Vari\IeC {\'a}veis do projeto\relax }}{14}{figure.caption.20}

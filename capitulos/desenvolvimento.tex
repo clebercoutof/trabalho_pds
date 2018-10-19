@@ -1,90 +1,113 @@
-\chapter{Medotologia}\label{cap:CnptDsng}
+\chapter{Fundamentação Teórica}\label{cap:CnptDsng}
 
-\section{Escolha da frequência}\label{sec:esc_freq}
-A frequência foi escolhida com base no regulamento da Anatel. O mesmo estabelece que equipamentos de radiocomunicação com faixas restritas de: 902-907,5; 915-928; 2400-2483,5; 5725-5850 MHz, assim para os cálculos iniciais foi escolhida uma frequência de 920MHz.
+\section*{Processamento de Áudio}\label{sec:esc_freq}
+As gravações de áudio se dão por meio de microfones e captadores de áudio, os quais realizam a conversão por meio de um transdutor, o qual converte a variação da pressão acústica em uma variação de tensão elétrica correspondente. Este sinal é convertido em pequenas amostras individuais espaçadas no tempo de maneira regular, constituindo a aproximação da forma de onda original.
 
-\section{Estudo do Obstáculo}\label{sec:est_obs}
-O primeiro passado adotado foi a análise dos pontos, verificando se entre os dois existia algum obstáculo. Essa informação pode ser extraída dos mapas que foram fornecidos em anexo, como mostra a figura \ref{fig:obs_cam}.
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=1\textwidth]{obs_cam.png}
-	\caption{Gráfico de obstáculo}
-	\label{fig:obs_cam}
-	%\source{Fornecido junto com os pontos}
-\end{figure} 
+Este processo é conhecido como conversão analógico-digital. O número de amostras retiradas da onda original no período de um segundo, é chamada frequência de amostragem, e quanto mais elevado o seu valor, mais fiel será a representação do sinal no domínio digital. De acordo com o teorema de Nyquist, o limite mínimo para a frequência de amostragem de qualquer sinal é o dobro da sua frequência original. A representação do sinal de áudio no domínio digital é apresentada como uma sequência de palavras onde o número de bits determina a resolução em amplitude do sinal.
 
-Por meio da análise do gráfico, fica evidenciado que entre os dois pontos existe um grande obstáculo arredondado, assim sendo necessário calcular o seu raio de curvatura e a partir disso ver o quanto ele irá interferir na transmissão.
-É feita uma aproximação do topo do obstáculo, utilizando uma curvatura parabólica como mostrado na figura 4 \ref{fig:obs_raio}.
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=.4\textwidth]{obs_raio.png}
-	\label{fig:obs_raio}
-	\caption{Curvatura parabólica utilizada para aproximação}
-	%\source{Própria}
-\end{figure} 
+No processo de reprodução de áudio, acontece o inverso da situação original, onde o sinal digital é enviado a um conversor digital-analógico, responsável pela reconstrução do sinal para que ele possa ser reproduzido em alto-falantes, caixas de som, ou qualquer aparelho que possa reproduzir sinais de áudio.
 
-O raio $r$ da parábola será calculado o $\alpha$ que possibilita encontrar quantos decibéis de interferência o obstáculo irá causar. O cálculo do raio $r$ é feito utilizando a seguinte formula:
-\begin{equation}
-r = \dfrac{x^2}{8y}*10^{-3}
-\end{equation}
+Dentro do domínio digital, o sinal de áudio pode ser tratado utilizando todas as técnicas de processamento, tais como as FFTs, DFTs filtros digitais, técnicas de janelamento e filtros digitais. Sendo assim, torna-se extremamente interessante e necessário realizar diversos tratamentos nestes sinais no domínio digital para reduzir as interferências externas, ruídos e desafinação, mantendo assim uma afinação constante em uma música. 
 
-Onde $x$ representa a distância em metros entre os dois pontos de igual nível, sendo um em cada lado do pico considerado e $y$ representa a diferença de cota entre o pico do obstáculo e a curva de nível considerada para  medida $x$.
+Uma das principais técnicas utilizadas para correção de afinação é a de pitch-shift, a qual consiste na mudança do tom de um sinal de áudio sem modificar o tamanho dele. A diferença de um deslocamento em frequência para o pitch-shift é justamente o fato de que num deslocamento em frequência, existe um deslocamento do espectro do som, enquanto um phase-shift dilata ou comprime o espectro de som.. O Pashe-Vocoder é uma técnica de pitch-shift muito utilizada por produtores musicais. 
 
-\section{Atenuação do Obstáculo}
-O cálculo do fator $\alpha$ relaciona a frequência $f$, o raio de curvatura da parábola $r$, a distância entre o vértice do obstáculo ao ponto de transmissão $d_1$ e a distância entre o vértice do obstáculo ao ponto de recepção $d_2$, ambas em \textit{Km}.
-\begin{equation}
-\alpha = 0,0818\dfrac{1}{\sqrt[6]{f}}\sqrt[3]{r}\sqrt{\dfrac{d_1+d_2}{d_1*d_2}}
-\end{equation}
 
-A atenuação é encontrada a partir de $\alpha$ e a relação entre os fatores  $H_c$ e $r_f$ por meio do gráfico 6. Onde $H_c$ representa a diferença entre ponto máximo do obstáculo e o nivelamento das antenas, enquanto $r_f$  é chamado de raio de \textit{fresnel}, sendo calculado com as mesmas distâncias $d_1$ e $d_2$. A relação é encontrada como mostrado na figura 6.
+\section*{STFT (Short Time Fourier Transform)}\label{sec:est_obs}
+Uma das técnicas mais utilizadas em processamento digital de sinais é a Transformada Discreta de Fourier (DFT), a qual é uma variação da Transformada de Fourier para sinais discretos. A transformada de Fourier define a redução de uma função periódica a um somatório de senos e cossenos. Este procedimento matemático gera uma representação de um sinal originalmente no domínio do tempo, em uma representação no domínio da frequência.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=.6\textwidth]{rf_img.png}
-	\label{fig:rf_img}
-	\caption{Modelo da zona de \textit{Fresnel}}
+	\includegraphics[width=.3\textwidth]{Fourier.png}
+	\label{fig:Fourier}
+	\caption{Transformada de Fourier para sinais contínuos}
 	%\source{Própria}
 \end{figure}
 
-O cálculo de $r_f$ se dá por:
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\textwidth]{DFT.png}
+	\label{fig:DFT}
+	\caption{Transformada Discreta de Fourier}
+	%\source{Própria}
+\end{figure}
+
+As transformadas de Fourier se aplicam somente a sinais de funções estacionárias, onde o espectro de frequência é fixo e não variam com o tempo.
+
+Os sinais de áudio gerados pela voz humana se encontram dentro do espectro de frequências entre 50 a 3400 Hz, e a sua principal característica é a de que a sua frequência não é constante no tempo, o que dá ao sinal da voz humana a característica da não-ergodicidade (seu sinal não mantém as propriedades estatísticas ao longo do tempo), sendo assim, a utilização da STFT (Short Time Fourier Transform) se torna bastante eficaz em sinais dessa natureza.
+
+A STFT é um algoritmo desenvolvido com base na transformada discreta de Fourier, diferenciando-se pela inclusão de uma função de janelamento w(t). Sua principal aplicação é para funções cujo o espectro de frequência varia com o tempo.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\textwidth]{STFT.png}
+	\label{fig:STFT}
+	\caption{Transformada de Fourier de Tempo Curto}
+	%\source{Própria}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.7\textwidth]{STFT_GRAPHICS.png}
+	\label{fig:STFT_GRAPHICS}
+	\caption{Transformada de Fourier de Tempo Curto sendo aplicada em diversas frequências de um mesmo sinal}
+	%\source{Própria}
+\end{figure}
+\newpage
+ 
+O principal propósito da utilização de uma STFT é separar o sinal em pequenos intervalos que possam ser tratados individualmente, obtidos através da janela que está inserida na transformada. Desta maneira a modificação de frequência se dá de forma independente, sem a alteração de tempo e vice versa. 
+
+\section*{Funções de Janelamento}
+Para aplicações que consistem na amostragem de sinais, a amostragem, por ser finita, resulta em uma forma de onda truncada com características diferentes do sinal original, consequentemente a influência do vazamento espectral torna-se maior para uma situação como esta, gerando uma perda de informação do sinal original. 
+Para reduzir os efeitos das imperfeições de amostragem, melhorando a qualidade da reconstrução do sinal é a aplicação de uma função de janelamento.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.7\textwidth]{Janelamento.png}
+	\label{fig:Janelamento}
+	\caption{Efeitos da função de janelamento em um sinal no espectro de frequência}
+	%\source{Própria}
+\end{figure}
+ \newpage
+
+A utilização de uma função de janelamento permite uma definição do período de observação do sinal, redução dos efeitos do vazamento espectral e a separação do sinal de pequena amplitude com frequências muito próximas. A aplicação de uma função de janelamento no tempo, consiste na multiplicação da função original pela função, o que equivale a uma convolução no domínio da frequência.
+Existem diversas funções de janelamento, as quais possuem diferentes características e aplicações dependendo principalmente dos parâmetros desejados do sinal original.
+
+\begin{itemize}
+	\item Retangular
+	\item Hanning
+	\item Hamming
+	\item Blackman
+	\item Kaiser-Bessel
+\end{itemize}
+ 
+\section*{Janela Hanning}
+
+Dentre as funções de janelamento existentes, a função Hanning é a mais comumente utilizada na produção musical. O formato desta janela é similar ao de meio ciclo de uma onda cossenoidal. Suas características de baixo vazamento espectral e  formato de onda bem similar ao formato cossenóide,. Torna-se recomendável utilizar portanto a janela para análises de sinais com transientes maiores que de duração da própria janela.
+
 \begin{equation}
-r_f = \sqrt{\dfrac{n\lambda d_1 d_2}{d_1 + d_2}}
+w[n] = 0.5-0.5*\cos(\dfrac{2\pi*n}{N}), n = 0, 1, 2,..., N-1 
 \end{equation}
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=.8\textwidth]{graf_ate.png}
-	\label{fig:graf_ate}
-	\caption{Gráfico de atenuação}
+	\includegraphics[width=.7\textwidth]{Janela_Hanning.png}
+	\label{fig:Janela Hanning}
+	\caption{Função da janela Hanning}
 	%\source{Própria}
-\end{figure} 
+\end{figure}
 
-
-\begin{center}
-	\begin{table}[]
-		\begin{tabular}{|l|l|}
-			\hline
-			Rf    & 8,866 \\ \hline
-			Hc    & 5     \\ \hline
-			Hc/rf & 0,563 \\ \hline
-		\end{tabular}
-	\end{table}
-\end{center}
-
-
-\section{Atenuação no espaço livre}
-O sinal também sofrerá atenuação ao ser transmitido no espaço livre, o cálculo da atenuação $L$ se dá por meio da fórmula de \textit{Fris}:
-\begin{equation}
-L = 32,45 +20(\log_{10}(d_1+d_2) + \log_{10}f)
-\end{equation}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.5\textwidth]{Grafico_Hanning.png}
+	\label{fig:Gráfico Hanning}
+	\caption{Função da janela Hanning}
+	%\source{Própria}
+\end{figure}
 
 
 
-\section{Atenuação total}
-A atenuação total é a soma da atenuação no espaço livre com a atenuação do obstáculo, assim :
-\begin{equation}
-L_{tot} = L + L_{obstaculo}
-\end{equation}
+
+
 
 \chapter{Resultados}
 \section{Dados de entrada}
