@@ -9,11 +9,19 @@ No processo de reprodução de áudio, acontece o inverso da situação original
 
 Dentro do domínio digital, o sinal de áudio pode ser tratado utilizando todas as técnicas de processamento, tais como as FFTs, DFTs filtros digitais, técnicas de janelamento e filtros digitais. Sendo assim, torna-se extremamente interessante e necessário realizar diversos tratamentos nestes sinais no domínio digital para reduzir as interferências externas, ruídos e desafinação, mantendo assim uma afinação constante em uma música. 
 
-Uma das principais técnicas utilizadas para correção de afinação é a de pitch-shift, a qual consiste na mudança do tom de um sinal de áudio sem modificar o tamanho dele. A diferença de um deslocamento em frequência para o pitch-shift é justamente o fato de que num deslocamento em frequência, existe um deslocamento do espectro do som, enquanto um phase-shift dilata ou comprime o espectro de som.. O Pashe-Vocoder é uma técnica de pitch-shift muito utilizada por produtores musicais. 
+Uma das principais técnicas utilizadas para correção de afinação é a de pitch-shift, a qual consiste na mudança do tom de um sinal de áudio sem modificar o tamanho dele. A diferença de um deslocamento em frequência para o pitch-shift é justamente o fato de que num deslocamento em frequência, existe um deslocamento do espectro do som, enquanto um phase-shift dilata ou comprime o espectro de som.. O Pashe-Vocoder é uma técnica de pitch-shift muito utilizada por produtores musicais.[2][3] 
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=.6\textwidth]{Pitch_Shift.png}
+	\label{fig:Pitch_Shif}
+	\caption{Demonstração da técnica de Pitch Shift para sinais de guitarra}
+	%\source{Própria}
+\end{figure}
+\newpage
 
 \section*{STFT (Short Time Fourier Transform)}\label{sec:est_obs}
-Uma das técnicas mais utilizadas em processamento digital de sinais é a Transformada Discreta de Fourier (DFT), a qual é uma variação da Transformada de Fourier para sinais discretos. A transformada de Fourier define a redução de uma função periódica a um somatório de senos e cossenos. Este procedimento matemático gera uma representação de um sinal originalmente no domínio do tempo, em uma representação no domínio da frequência.
+Uma das técnicas mais utilizadas em processamento digital de sinais é a Transformada Discreta de Fourier (DFT), a qual é uma variação da Transformada de Fourier para sinais discretos. A transformada de Fourier define a redução de uma função periódica a um somatório de senos e cossenos. Este procedimento matemático gera uma representação de um sinal originalmente no domínio do tempo, em uma representação no domínio da frequência.[4]
 
 \begin{figure}[h]
 	\centering
@@ -35,7 +43,7 @@ As transformadas de Fourier se aplicam somente a sinais de funções estacionár
 
 Os sinais de áudio gerados pela voz humana se encontram dentro do espectro de frequências entre 50 a 3400 Hz, e a sua principal característica é a de que a sua frequência não é constante no tempo, o que dá ao sinal da voz humana a característica da não-ergodicidade (seu sinal não mantém as propriedades estatísticas ao longo do tempo), sendo assim, a utilização da STFT (Short Time Fourier Transform) se torna bastante eficaz em sinais dessa natureza.
 
-A STFT é um algoritmo desenvolvido com base na transformada discreta de Fourier, diferenciando-se pela inclusão de uma função de janelamento w(t). Sua principal aplicação é para funções cujo o espectro de frequência varia com o tempo.
+A STFT é um algoritmo desenvolvido com base na transformada discreta de Fourier, diferenciando-se pela inclusão de uma função de janelamento w(t). Sua principal aplicação é para funções cujo o espectro de frequência varia com o tempo.[4]
 
 \begin{figure}[h]
 	\centering
@@ -52,13 +60,12 @@ A STFT é um algoritmo desenvolvido com base na transformada discreta de Fourier
 	\caption{Transformada de Fourier de Tempo Curto sendo aplicada em diversas frequências de um mesmo sinal}
 	%\source{Própria}
 \end{figure}
-\newpage
  
 O principal propósito da utilização de uma STFT é separar o sinal em pequenos intervalos que possam ser tratados individualmente, obtidos através da janela que está inserida na transformada. Desta maneira a modificação de frequência se dá de forma independente, sem a alteração de tempo e vice versa. 
 
 \section*{Funções de Janelamento}
 Para aplicações que consistem na amostragem de sinais, a amostragem, por ser finita, resulta em uma forma de onda truncada com características diferentes do sinal original, consequentemente a influência do vazamento espectral torna-se maior para uma situação como esta, gerando uma perda de informação do sinal original. 
-Para reduzir os efeitos das imperfeições de amostragem, melhorando a qualidade da reconstrução do sinal é a aplicação de uma função de janelamento.
+Para reduzir os efeitos das imperfeições de amostragem, melhorando a qualidade da reconstrução do sinal é a aplicação de uma função de janelamento.[5]
 
 \begin{figure}[h]
 	\centering
@@ -84,10 +91,6 @@ Existem diversas funções de janelamento, as quais possuem diferentes caracter�
 
 Dentre as funções de janelamento existentes, a função Hanning é a mais comumente utilizada na produção musical. O formato desta janela é similar ao de meio ciclo de uma onda cossenoidal. Suas características de baixo vazamento espectral e  formato de onda bem similar ao formato cossenóide,. Torna-se recomendável utilizar portanto a janela para análises de sinais com transientes maiores que de duração da própria janela.
 
-\begin{equation}
-w[n] = 0.5-0.5*\cos(\dfrac{2\pi*n}{N}), n = 0, 1, 2,..., N-1 
-\end{equation}
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=.7\textwidth]{Janela_Hanning.png}
@@ -100,114 +103,56 @@ w[n] = 0.5-0.5*\cos(\dfrac{2\pi*n}{N}), n = 0, 1, 2,..., N-1
 	\centering
 	\includegraphics[width=.5\textwidth]{Grafico_Hanning.png}
 	\label{fig:Gráfico Hanning}
-	\caption{Função da janela Hanning}
+	\caption{Gráfico da janela Hanning}
 	%\source{Própria}
 \end{figure}
 
-
-
-
-
-
-\chapter{Resultados}
-\section{Dados de entrada}
-\subsection{Dados Gerais}
-A altura escolhida para as torres foi de 0 e 9 para manter a linha de visada direta em paralelo com o chao e assim facilitando os cálculos e diminuindo os erros, os outros dados estão mostrados na tabela abaixo.
-	\begin{table}[h]
-		\centering
-		\begin{tabular}{|
-				>{\columncolor[HTML]{DAE8FC}}c |l|}
-			\hline
-			Distância Total (m) & 0,96713                  \\ \hline
-			$\lambda$           & 0,001086957 x  $10^{-6}$ \\ \hline
-			Altura das torres   & 0/9                      \\ \hline
-		\end{tabular}
-	\end{table}
-\subsection{Dados dos Obstáculos}
-
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|
-			>{\columncolor[HTML]{DAE8FC}}c |l|}
-		\hline
-		X                                                   & 325     \\ \hline
-		Y                                                   & 7       \\ \hline
-		$d_1$                                               & 0,475   \\ \hline
-		\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}$d_2$} & 0,49213 \\ \hline
-	\end{tabular}
-\end{table}
-			
-\section{Memorial de Cálculo}
-\subsection{Frequência}
-Não foi necessário calcular a frequência, o valor utilizado foi de 920MHz e sua escolha está justificada em \ref{sec:esc_freq}.
-
-\subsection{Raio da Parábola}
-Com os valores de $X$ e $Y$ do obstáculo o valor encontrado para o raio da parábola foi de:
-\begin{equation}
-	r_{parabola}= 1,886160714
-\end{equation}
-
-\subsection{Atenuação do obstáculo}
-Com os valores de $d_1$ e $d_2$ o $\alpha$ encontrado teve valor de :
-\begin{equation}
-	\alpha = 0,6703932617
-\end{equation}
-
-O parâmetro $H_c$ foi encontrado por meio dos dados fornecidos, como mostrado na figura a seguir:
-
-O parâmetro $r_f$ foi cálculado por meio da equação de $Fresnel$, com o valor dos parâmetros a seguir, foi encontrado no gráfico o valor da atenuação do obstáculo.
-
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|
-			>{\columncolor[HTML]{DAE8FC}}c |l|}
-		\hline
-		$r_f$                                                         & 8,866    \\ \hline
-		$H_c$                                                         & 5        \\ \hline
-		$\dfrac{H_c}{r_f}$                                            & 0,563    \\ \hline
-		\multicolumn{1}{|l|}{\cellcolor[HTML]{DAE8FC}$L_{obstaculo}$} & $22,5dB$ \\ \hline
-	\end{tabular}
-\end{table}
-
-\subsection{Atenuação no Espaço livre}
-Com os valores de $d_1$, $d_2$ e $f$ conhecidos o valor encontrado para $L$ foi:
-\begin{equation}
-L = 91,43dB
-\end{equation}
-
-\subsection{Atenuação total}
-A atenuação total consiste nas soma das atenuação encontradas, logo:
-\begin{equation}
-L_{tot} = L + L_{obstaculo} = 91,43 + 22,5 = 113,9dB 
-\end{equation} 
-
-\section{Escolha do tranmissor e da antena}
- A escolha dos módulos e da antena se deu baseado na frequência escolhida para os cálculos e na versatilidade de cada dispositivo. 
- 
- O modelo das antenas foi o \textit{Yagi(AirMax Antenna 900Mhz)},devido a sua faixa de trabalho e alta potência.
- 
- O modelo do transmissor foi o \textit{Ubiquiti Networks(Rocket M9)} pot ser recomendado para trabalhar em conjunto com o modelo de antena \textit{Yagi}.
-
-\section{Receptor}
-Escolha do receptor é encontrado à partir das potências das antenas, do módulo tranmissor e das perdas durante a transmissão. Sua potência foi calculada da seguinte forma:
-\begin{equation}
-	P_{receptor} = P_{antena_tx} + P_{antena_rx} + P_{transmissor} - L_{tot}
-\end{equation}
-
-A mesma antena utilizada para transmissão é utilizada para recepção, os dados da sua potência estão disponíveis nos seu \textit{datasheet} onde $P_{antena_{tx}} = P_{antena_{rx}} = 19dBi$. A potência do transmissõr também está disponível no datasheet, onde $P_{transmissor} = 28dBm$. O valor encontrado para potência do receptor foi de $	P_{receptor} = -47.9dBi$
-
-Com o valor de $-47.9dBi$, o módulo \textit{Ubiquiti Networks(Rocket M9)} também poderá ser utilizado para recepção, tornando o sistema mais simplificado já que ambos receptores e transmissores estarão utilizando antenas recomendadas no datasheet.
-
 \newpage
-\begin{center}
-	\Large \textbf{Variáveis do projeto}
-\end{center}
-Todos os valores utilizados e calculados estão registrados na figura a seguir:
+
+\chapter{Metodologia}
+\section*{Funcionamento da solução}
+Utilizando o software MATLAB, uma solução computacional foi desenvolvida para realizar o procedimento de regulagem de tom. 
+
+O funcionamento do algoritmo se dá primeiramente com a captação do áudio por meio dos microfones. Logo em seguida é aplicada a STFT para detecção dos espectros de frequência presentes no sinal de áudio. 
+
+A detecção da frequência mais próxima se dá para que o Pitch-Shift seja realizado corretamente e logo em seguida o sinal seja reconstruído.
+
+Para a reprodução do sinal é realizada a transformada inversa de Fourier para que o sinal seja colocado no tempo.
+
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=1\textwidth]{resultados.jpeg}
-	\label{fig:result}
-	\caption{Variáveis do projeto}
+	\includegraphics[width=.9\textwidth]{Fluxograma_Solucao.png}
+	\label{fig:Fluxograma_Solucao}
+	\caption{Fluxograma de Funcionamento do algoritmo desenvolvido}
 	%\source{Própria}
-\end{figure} 
+\end{figure}
+
+\section*{Funções Utilizadas}
+\subsection*{gravaAudio}
+Função responsável por gravar o áudio à ser utilizado para afinação. Recebendo como parâmetros de entrada a frequência de amostragem fs e a duração do áudio. Retorna o aúdio gravado.
+
+\subsection*{istft}
+Função responsável por realizar a transformada inversa da stft. Recebe como parâmetros de entrada o conjugado do sinal a ser convertido, o número de amostras da stft, a quantidades de bins N da janela, e quantidade de bins que não sofrerão overlap. Retorna o sinal reconstruído
+
+\subsection*{spectrogram}
+Função responsável por fazer a stft, recebendo como argumentos  o sinal, a janela a ser utilizada, quantidade de amostras da FFT, quantidade de amostras que não sofrerão overlap e frequência de amostragem. Retornando um vetor contendo o sinal transformado, um vetor de frequências F, um vetor de tempo T e um vetor de densidade espectral de potência.
+
+\subsection*{conj}
+Retorna o complexo conjugado dos elementos contidos no argumento.
+
+
+\subsection*{mostraEspectograma}
+Mostra o spectrograma do sinal S, recebendo o vetor de frequência F e o vetor de tempo T.
+
+\subsection*{tabela Do Maior}
+Retorna um vetor contendo todas as frequências da escala de Dó Maior.]
+
+\subsection*{compareToPitches}
+A função recebe um tom e a tabela contendo a escola de tons, retornando o tom mais próximo da escala. 
+
+\subsection*{pitchCorrector}
+Função responsável por corrigir a stft, colocando os tons na escala fornecida. Recebe como entrada a STFT, seu espaço em frequência, o vetor de densidade espectral de potência P e tabela com a escala de tons. Retoranndo a stft corrigida.
+
+\subsection*{sound}
+Toca o sinal de som fornecido, recebendo o som e a frequência de amostragem.
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.8.16)  19 OCT 2018 20:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.20)  20 OCT 2018 12:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1622,97 +1622,106 @@ entifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.6 \chapter
-            *[Introdução]{Introdução} [2
+            [Introdução]{Introdução} [2
 
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 27.
+Underfull \vbox (badness 1038) has occurred while \output is active []
+
+ [3]
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 32.
 
 (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 27.
-) [3]
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 32.
+) [4]
 \openout2 = `capitulos/desenvolvimento.aux'.
 
- (./capitulos/desenvolvimento.tex [4
+ (./capitulos/desenvolvimento.tex <figs/Pitch_Shift.png, id=66, 604.2575pt x 45
+2.69125pt>
+File: figs/Pitch_Shift.png Graphic file (type png)
 
-
-
-] [5] <figs/Fourier.png, id=70, 192.72pt x 53.19875pt>
-File: figs/Fourier.png Graphic file (type png)
-
-<use figs/Fourier.png>
-Package pdftex.def Info: figs/Fourier.png used on input line 20.
-(pdftex.def)             Requested size: 136.50139pt x 37.67964pt.
- <figs/DFT.png, id=71, 290.08376pt x 68.255pt>
-File: figs/DFT.png Graphic file (type png)
-
-<use figs/DFT.png>
-Package pdftex.def Info: figs/DFT.png used on input line 28.
-(pdftex.def)             Requested size: 227.5pt x 53.53029pt.
- <figs/STFT.png, id=72, 460.72125pt x 62.2325pt>
-File: figs/STFT.png Graphic file (type png)
-
-<use figs/STFT.png>
-Package pdftex.def Info: figs/STFT.png used on input line 42.
-(pdftex.def)             Requested size: 273.00278pt x 36.87543pt.
- <figs/STFT_GRAPHICS.png, id=73, 443.6575pt x 309.155pt>
-File: figs/STFT_GRAPHICS.png Graphic file (type png)
-
-<use figs/STFT_GRAPHICS.png>
-Package pdftex.def Info: figs/STFT_GRAPHICS.png used on input line 50.
-(pdftex.def)             Requested size: 318.49861pt x 221.93571pt.
+<use figs/Pitch_Shift.png>
+Package pdftex.def Info: figs/Pitch_Shift.png used on input line 16.
+(pdftex.def)             Requested size: 273.00278pt x 204.52426pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[6 <./figs/Fourier.png> <./figs/DFT.png> <./figs/STFT.png>]
-<figs/Janelamento.png, id=79, 306.14375pt x 334.24875pt>
+[5
+
+
+
+] <figs/Fourier.png, id=73, 192.72pt x 53.19875pt>
+File: figs/Fourier.png Graphic file (type png)
+ <use figs/Fourier.png>
+Package pdftex.def Info: figs/Fourier.png used on input line 28.
+(pdftex.def)             Requested size: 136.50139pt x 37.67964pt.
+
+<figs/DFT.png, id=74, 290.08376pt x 68.255pt>
+File: figs/DFT.png Graphic file (type png)
+ <use figs/DFT.png>
+Package pdftex.def Info: figs/DFT.png used on input line 36.
+(pdftex.def)             Requested size: 227.5pt x 53.53029pt.
+ [6 <./figs/Pitch_Shift.png> <./figs/Fourier.png> <./figs/DFT.png>]
+<figs/STFT.png, id=80, 460.72125pt x 62.2325pt>
+File: figs/STFT.png Graphic file (type png)
+ <use figs/STFT.png>
+Package pdftex.def Info: figs/STFT.png used on input line 50.
+(pdftex.def)             Requested size: 273.00278pt x 36.87543pt.
+
+<figs/STFT_GRAPHICS.png, id=81, 443.6575pt x 309.155pt>
+File: figs/STFT_GRAPHICS.png Graphic file (type png)
+
+<use figs/STFT_GRAPHICS.png>
+Package pdftex.def Info: figs/STFT_GRAPHICS.png used on input line 58.
+(pdftex.def)             Requested size: 318.49861pt x 221.93571pt.
+
+<figs/Janelamento.png, id=82, 306.14375pt x 334.24875pt>
 File: figs/Janelamento.png Graphic file (type png)
 
 <use figs/Janelamento.png>
-Package pdftex.def Info: figs/Janelamento.png used on input line 65.
+Package pdftex.def Info: figs/Janelamento.png used on input line 72.
 (pdftex.def)             Requested size: 318.49861pt x 347.7533pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7 <./figs/STFT_GRAPHICS.png>] [8 <./figs/Janelamento.png>]
-<figs/Janela_Hanning.png, id=89, 385.44pt x 38.1425pt>
+[7 <./figs/STFT.png> <./figs/STFT_GRAPHICS.png>] [8 <./figs/Janelamento.png>]
+<figs/Janela_Hanning.png, id=92, 385.44pt x 38.1425pt>
 File: figs/Janela_Hanning.png Graphic file (type png)
 
 <use figs/Janela_Hanning.png>
-Package pdftex.def Info: figs/Janela_Hanning.png used on input line 93.
+Package pdftex.def Info: figs/Janela_Hanning.png used on input line 96.
 (pdftex.def)             Requested size: 318.49861pt x 31.51799pt.
 
-<figs/Grafico_Hanning.png, id=90, 322.20375pt x 202.7575pt>
+<figs/Grafico_Hanning.png, id=93, 322.20375pt x 202.7575pt>
 File: figs/Grafico_Hanning.png Graphic file (type png)
 
 <use figs/Grafico_Hanning.png>
-Package pdftex.def Info: figs/Grafico_Hanning.png used on input line 101.
+Package pdftex.def Info: figs/Grafico_Hanning.png used on input line 104.
 (pdftex.def)             Requested size: 227.5pt x 143.16681pt.
  [9 <./figs/Janela_Hanning.png> <./figs/Grafico_Hanning.png>] [10
 
-] [11] [12] [13]
-<figs/resultados.jpeg, id=142, 405.515pt x 446.66875pt>
-File: figs/resultados.jpeg Graphic file (type jpg)
+] <figs/Fluxograma_Solucao.png, id=104, 580.1675pt x 224.84pt>
+File: figs/Fluxograma_Solucao.png Graphic file (type png)
 
-<use figs/resultados.jpeg>
-Package pdftex.def Info: figs/resultados.jpeg used on input line 208.
-(pdftex.def)             Requested size: 455.0pt x 501.1925pt.
-) [14 <./figs/resultados.jpeg>]
+<use figs/Fluxograma_Solucao.png>
+Package pdftex.def Info: figs/Fluxograma_Solucao.png used on input line 124.
+(pdftex.def)             Requested size: 409.49722pt x 158.69748pt.
+ [11 <./figs/Fluxograma_Solucao.png>])
+[12]
 \openout2 = `postextual/referencias.aux'.
 
-
-(./postextual/referencias.tex) [15
+ (./postextual/referencias.tex) [13
 
 
 ]
 \openout2 = `capitulos/anexo.aux'.
 
- (./capitulos/anexo.tex [16
+ (./capitulos/anexo.tex [14
 
 
 ]
@@ -1727,10 +1736,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--18
 
  []
 
-(./matlab/istft.m [17]
+(./matlab/istft.m [15]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18])
+ [16])
 Underfull \hbox (badness 10000) in paragraph at lines 22--24
 
  []
@@ -1740,7 +1749,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 26--28
 
  []
 
-(./matlab/tabelaDoMaior.m [19])
+(./matlab/tabelaDoMaior.m [17])
 Underfull \hbox (badness 10000) in paragraph at lines 30--32
 
  []
@@ -1748,7 +1757,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--32
 (./matlab/compareToPitches.m
 Underfull \vbox (badness 2635) has occurred while \output is active []
 
- [20])
+ [18])
 Underfull \hbox (badness 10000) in paragraph at lines 34--36
 
  []
@@ -1756,13 +1765,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--36
 (./matlab/compareToPitches.m
 Underfull \vbox (badness 2635) has occurred while \output is active []
 
- [21])
-[22]
+ [19])
+[20]
 Underfull \hbox (badness 10000) in paragraph at lines 41--43
 
  []
 
-(./matlab/teste.m)) [23] 
+(./matlab/teste.m)) [21] 
 AED: lastpage setting LastPage
 
 Package glossaries Warning: No \printglossary or \printglossaries found.
@@ -1782,30 +1791,25 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 188.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 188.
  ) 
 Here is how much of TeX's memory you used:
- 23448 strings out of 493029
- 348678 string characters out of 6136234
- 812842 words of memory out of 5000000
- 26126 multiletter control sequences out of 15000+600000
- 76917 words of font info for 99 fonts, out of 8000000 for 9000
+ 23418 strings out of 493029
+ 348422 string characters out of 6136233
+ 812840 words of memory out of 5000000
+ 26116 multiletter control sequences out of 15000+600000
+ 72052 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  51i,13n,79p,1949b,1779s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
-/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm
-/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8
-.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/
-type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></u
-sr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/pub
-lic/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/shar
-e/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/fonts/type1/public/l
-m/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/t
-exmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/l
-msy8.pfb>
-Output written on main.pdf (26 pages, 546542 bytes).
+ips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public
+/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri1
+0.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb></usr/share/texmf/font
+s/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
+Output written on main.pdf (24 pages, 461658 bytes).
 PDF statistics:
- 555 PDF objects out of 1000 (max. 8388607)
- 498 compressed objects within 5 object streams
- 269 named destinations out of 1000 (max. 500000)
- 23214 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 482 PDF objects out of 1000 (max. 8388607)
+ 431 compressed objects within 5 object streams
+ 259 named destinations out of 1000 (max. 500000)
+ 21091 words of extra memory for PDF output out of 24883 (max. 10000000)
 
